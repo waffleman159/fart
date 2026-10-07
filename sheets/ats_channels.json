@@ -1,0 +1,26 @@
+{
+  "sheet": "ats_channels",
+  "about": "Live values the ATS plugin reads from the official SCS Telemetry SDK. One row = one register_for_channel call + one field in the plugin's state struct.",
+  "columns": {
+    "id": "row key, also the C++ state field name",
+    "sdk_name": "channel name string from the SDK headers",
+    "index": "array index, or -1 for a scalar channel",
+    "value_type": "SCS value type: float | bool | fvector",
+    "unit": "unit as the SDK reports it",
+    "used_for": "what the mashup uses it for (crash_rules metric or protocol field)",
+    "verified": "sdk-header = name/type checked against SCS SDK 1.15 headers; game = seen live in ATS"
+  },
+  "rows": [
+    {"id": "speed",            "sdk_name": "truck.speed",                     "index": -1, "value_type": "float",   "unit": "m/s (negative = reverse)", "used_for": "shadow truck target speed; impact speed",     "verified": "sdk-header"},
+    {"id": "accel",            "sdk_name": "truck.local.acceleration.linear", "index": -1, "value_type": "fvector", "unit": "m/s^2, truck-local",        "used_for": "peak g during impact",                          "verified": "sdk-header"},
+    {"id": "steering",         "sdk_name": "truck.effective.steering",        "index": -1, "value_type": "float",   "unit": "-1..1",                     "used_for": "report card / protocol only",                   "verified": "sdk-header"},
+    {"id": "throttle",         "sdk_name": "truck.effective.throttle",        "index": -1, "value_type": "float",   "unit": "0..1",                      "used_for": "protocol only",                                 "verified": "sdk-header"},
+    {"id": "brake",            "sdk_name": "truck.effective.brake",           "index": -1, "value_type": "float",   "unit": "0..1",                      "used_for": "protocol only",                                 "verified": "sdk-header"},
+    {"id": "wear_cabin",       "sdk_name": "truck.wear.cabin",                "index": -1, "value_type": "float",   "unit": "0..1",                      "used_for": "damage delta (crash) and repair detection",     "verified": "sdk-header"},
+    {"id": "wear_chassis",     "sdk_name": "truck.wear.chassis",              "index": -1, "value_type": "float",   "unit": "0..1",                      "used_for": "damage delta (crash) and repair detection",     "verified": "sdk-header"},
+    {"id": "wear_engine",      "sdk_name": "truck.wear.engine",               "index": -1, "value_type": "float",   "unit": "0..1",                      "used_for": "damage delta (crash) and repair detection",     "verified": "sdk-header"},
+    {"id": "trailer_wear_body","sdk_name": "trailer.wear.body",               "index": -1, "value_type": "float",   "unit": "0..1",                      "used_for": "damage delta (crash)",                          "verified": "sdk-header"},
+    {"id": "trailer_attached", "sdk_name": "trailer.connected",               "index": -1, "value_type": "bool",    "unit": "true/false",                "used_for": "spawn shadow trailer or not",                   "verified": "sdk-header"},
+    {"id": "cargo_damage",     "sdk_name": "job.cargo.damage",                "index": -1, "value_type": "float",   "unit": "0..1",                      "used_for": "protocol only",                                 "verified": "sdk-header"}
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "sheet": "obstacles",
+  "about": "What the shadow truck hits in BeamNG, chosen by ATS impact speed. One row = one tier in the generated Lua table.",
+  "columns": {
+    "id": "tier key",
+    "min_kmh": "lowest ATS impact speed for this tier (inclusive)",
+    "max_kmh": "highest (exclusive); 999 = no limit",
+    "beamng_model": "BeamNG vehicle/prop model id, loaded from the player's own BeamNG install",
+    "beamng_config": "config name inside that model, or 'default'",
+    "ahead_m": "metres in front of the shadow truck's nose where it is placed",
+    "label": "text shown in BeamNG",
+    "verified": "design | game (spawned and hit in BeamNG)"
+  },
+  "rows": [
+    {"id": "light",  "min_kmh": 0,  "max_kmh": 35,  "beamng_model": "barrier",   "beamng_config": "default", "ahead_m": 6, "label": "Barrier",       "verified": "design"},
+    {"id": "medium", "min_kmh": 35, "max_kmh": 70,  "beamng_model": "etk800",    "beamng_config": "default", "ahead_m": 7, "label": "Parked car",    "verified": "design"},
+    {"id": "heavy",  "min_kmh": 70, "max_kmh": 999, "beamng_model": "blockwall", "beamng_config": "default", "ahead_m": 8, "label": "Concrete wall", "verified": "design"}
+  ]
+}

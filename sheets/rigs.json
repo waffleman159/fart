@@ -1,0 +1,17 @@
+{
+  "sheet": "rigs",
+  "about": "The BeamNG shadow rig, built from the player's own BeamNG vehicles. One row = one vehicle the mod spawns.",
+  "columns": {
+    "id": "row key",
+    "role": "tractor | trailer",
+    "beamng_model": "BeamNG model id",
+    "beamng_config": "config name or 'default'",
+    "spawn_offset_m": "metres behind the tractor's spawn point",
+    "needs": "ats_channels/ats_events id that decides if/how it spawns, or 'none'",
+    "verified": "design | game"
+  },
+  "rows": [
+    {"id": "tractor", "role": "tractor", "beamng_model": "us_semi", "beamng_config": "default", "spawn_offset_m": 0,  "needs": "none",             "verified": "design"},
+    {"id": "trailer", "role": "trailer", "beamng_model": "dryvan",  "beamng_config": "default", "spawn_offset_m": 10, "needs": "trailer_attached", "verified": "design"}
+  ]
+}

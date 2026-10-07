@@ -1,0 +1,19 @@
+{
+  "sheet": "ats_events",
+  "about": "Configuration and gameplay events the ATS plugin listens to. One row = one attribute it pulls out of an event.",
+  "columns": {
+    "id": "row key, also the C++ state field name",
+    "event": "configuration | gameplay",
+    "event_id": "configuration id or gameplay event id from the SDK headers",
+    "attribute": "attribute name inside that event",
+    "value_type": "string | float | u32",
+    "used_for": "what the mashup does with it",
+    "verified": "sdk-header | game"
+  },
+  "rows": [
+    {"id": "cargo_name",   "event": "configuration", "event_id": "job",          "attribute": "cargo",        "value_type": "string", "used_for": "shown in BeamNG when the shadow load changes",        "verified": "sdk-header"},
+    {"id": "cargo_mass",   "event": "configuration", "event_id": "job",          "attribute": "cargo.mass",   "value_type": "float",  "used_for": "kg added to the BeamNG trailer",                      "verified": "sdk-header"},
+    {"id": "truck_brand",  "event": "configuration", "event_id": "truck",        "attribute": "brand",        "value_type": "string", "used_for": "shown in BeamNG messages",                            "verified": "sdk-header"},
+    {"id": "fine_offence", "event": "gameplay",      "event_id": "player.fined", "attribute": "fine.offence", "value_type": "string", "used_for": "offence 'crash' = backup crash trigger",              "verified": "sdk-header"}
+  ]
+}

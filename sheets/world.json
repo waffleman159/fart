@@ -1,0 +1,15 @@
+{
+  "sheet": "world",
+  "about": "Where in BeamNG the shadow rig lives. One row = one setting in the generated Lua data.",
+  "columns": {
+    "id": "setting name",
+    "value": "value",
+    "meaning": "what it controls",
+    "verified": "design | game"
+  },
+  "rows": [
+    {"id": "level_path",        "value": "/levels/west_coast_usa/main.level.json", "meaning": "BeamNG map loaded from the player's install (West Coast USA has a freeway)", "verified": "design"},
+    {"id": "obstacle_life_s",   "value": 20,                                       "meaning": "obstacles are removed this long after the hit",                             "verified": "design"},
+    {"id": "stale_tick_s",      "value": 2,                                        "meaning": "no tick for this long = ATS paused/closed, shadow truck stops",             "verified": "design"}
+  ]
+}

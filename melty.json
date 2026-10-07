@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "installed",
+  "games": [
+    {
+      "slug": "american-truck-simulator",
+      "role": "primary"
+    },
+    {
+      "slug": "beamng-drive",
+      "role": "companion"
+    }
+  ],
+  "components": [
+    {
+      "id": "main",
+      "fileName": "ShadowRig-ATS-*.zip",
+      "label": "Shadow Rig - ATS telemetry plugin",
+      "kind": "main",
+      "required": true
+    },
+    {
+      "id": "beamng",
+      "fileName": "ShadowRig-BeamNG-*.zip",
+      "label": "Shadow Rig - BeamNG mod",
+      "kind": "extra",
+      "required": true
+    }
+  ],
+  "requirements": [],
+  "mappings": [
+    {
+      "component": "main",
+      "from": "",
+      "to": "{game}/bin/win_x64/plugins"
+    },
+    {
+      "component": "beamng",
+      "from": "",
+      "to": "{localappdata}/BeamNG.drive/current/mods/unpacked/shadowrig"
+    }
+  ],
+  "launch": {
+    "kind": "game"
+  },
+  "together": [
+    {
+      "launch": {
+        "kind": "exe",
+        "path": "{game:beamng-drive}/BeamNG.drive.exe"
+      },
+      "startFirst": true,
+      "waitSeconds": 5
+    }
+  ],
+  "multiplayer": {
+    "maxPlayers": 8
+  }
+}

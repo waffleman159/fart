@@ -1,0 +1,146 @@
+{
+  "sheet": "beamng_hooks",
+  "about": "Every BeamNG.drive API the mod calls. One row = one wrapper function in the generated Lua api table. Unverified rows are the first thing to check on the PC.",
+  "columns": {
+    "id": "wrapper name in shadowRig/api.lua (ge/veh), or extension function name (callback)",
+    "side": "ge (game engine Lua call) | veh (vehicle Lua, via queueLuaCommand) | callback (BeamNG calls the extension) | modscript (mod loading)",
+    "call": "the BeamNG call it makes",
+    "purpose": "why the mod needs it",
+    "verified": "design = from BeamNG modding docs/community mods; game = ran in BeamNG"
+  },
+  "rows": [
+    {
+      "id": "udp_open",
+      "side": "ge",
+      "call": "require('socket').udp() + setsockname + settimeout(0)",
+      "purpose": "receive ATS ticks",
+      "verified": "design"
+    },
+    {
+      "id": "json_decode",
+      "side": "ge",
+      "call": "jsonDecode(text)",
+      "purpose": "parse plugin messages",
+      "verified": "design"
+    },
+    {
+      "id": "start_level",
+      "side": "ge",
+      "call": "freeroam_freeroam.startFreeroam(levelPath)",
+      "purpose": "load the highway map if no level is open",
+      "verified": "design"
+    },
+    {
+      "id": "level_loaded",
+      "side": "ge",
+      "call": "getMissionFilename() ~= ''",
+      "purpose": "know when a map is ready",
+      "verified": "design"
+    },
+    {
+      "id": "spawn_vehicle",
+      "side": "ge",
+      "call": "core_vehicles.spawnNewVehicle(model, {pos, rot=quatFromDir(dir, up), config, autoEnterVehicle})",
+      "purpose": "spawn tractor, trailer and obstacles",
+      "verified": "design"
+    },
+    {
+      "id": "player_vehicle",
+      "side": "ge",
+      "call": "be:getPlayerVehicle(0)",
+      "purpose": "find a spawn point (current player car)",
+      "verified": "design"
+    },
+    {
+      "id": "vehicle_pose",
+      "side": "ge",
+      "call": "veh:getPosition(); veh:getDirectionVector()",
+      "purpose": "where the shadow truck is and which way it faces",
+      "verified": "design"
+    },
+    {
+      "id": "delete_vehicle",
+      "side": "ge",
+      "call": "obj:delete()",
+      "purpose": "remove old rig and obstacles",
+      "verified": "design"
+    },
+    {
+      "id": "ai_traffic",
+      "side": "veh",
+      "call": "ai.setMode('traffic'); ai.driveInLane('on')",
+      "purpose": "shadow truck keeps to its lane",
+      "verified": "design"
+    },
+    {
+      "id": "ai_speed",
+      "side": "veh",
+      "call": "ai.setSpeedMode('set'); ai.setSpeed(mps)",
+      "purpose": "match ATS speed",
+      "verified": "design"
+    },
+    {
+      "id": "couple_trailer",
+      "side": "veh",
+      "call": "beamstate.activateAutoCoupling()",
+      "purpose": "hitch the shadow trailer",
+      "verified": "design"
+    },
+    {
+      "id": "add_cargo_mass",
+      "side": "veh",
+      "call": "obj:getNodeMass / obj:setNodeMass over v.data.nodes",
+      "purpose": "put ATS cargo weight into the trailer",
+      "verified": "design"
+    },
+    {
+      "id": "message",
+      "side": "ge",
+      "call": "ui_message(text, ttl, category)",
+      "purpose": "on-screen notices",
+      "verified": "design"
+    },
+    {
+      "id": "log",
+      "side": "ge",
+      "call": "log(level, tag, text)",
+      "purpose": "write to BeamNG's log for debugging",
+      "verified": "design"
+    },
+    {
+      "id": "onExtensionLoaded",
+      "side": "callback",
+      "call": "M.onExtensionLoaded()",
+      "purpose": "open the UDP port when the mod starts",
+      "verified": "design"
+    },
+    {
+      "id": "onExtensionUnloaded",
+      "side": "callback",
+      "call": "M.onExtensionUnloaded()",
+      "purpose": "close the UDP port",
+      "verified": "design"
+    },
+    {
+      "id": "onUpdate",
+      "side": "callback",
+      "call": "M.onUpdate(dtReal, dtSim, dtRaw)",
+      "purpose": "read ATS messages and drive the shadow rig every frame",
+      "verified": "design"
+    },
+    {
+      "id": "onClientEndMission",
+      "side": "callback",
+      "call": "M.onClientEndMission()",
+      "purpose": "forget spawned vehicles when the map unloads",
+      "verified": "design"
+    },
+    {
+      "id": "modScript",
+      "side": "modscript",
+      "call": "scripts/shadowRig/modScript.lua: load('shadowRig'); setExtensionUnloadMode('shadowRig','manual')",
+      "purpose": "start the extension when the mod is active",
+      "verified": "design"
+    }
+  ]
+}

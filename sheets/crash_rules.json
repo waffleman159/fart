@@ -1,0 +1,21 @@
+{
+  "sheet": "crash_rules",
+  "about": "Numbers the ATS plugin uses to decide 'that was a crash' and how hard it was. One row = one named constant in the generated header and Lua data.",
+  "columns": {
+    "id": "constant name",
+    "value": "number",
+    "unit": "unit",
+    "meaning": "what it controls",
+    "verified": "design = picked on paper; tuned = adjusted after crashing in ATS"
+  },
+  "rows": [
+    {"id": "window_s",              "value": 0.5,   "unit": "s",     "meaning": "speed drop and damage are measured over this sliding window",           "verified": "design"},
+    {"id": "min_speed_drop_kmh",    "value": 12.0,  "unit": "km/h",  "meaning": "speed lost inside the window to count as an impact",                     "verified": "design"},
+    {"id": "min_peak_g",            "value": 1.2,   "unit": "g",     "meaning": "or: acceleration magnitude above this counts as an impact",              "verified": "design"},
+    {"id": "min_damage_delta",      "value": 0.004, "unit": "0..1",  "meaning": "summed wear increase inside the window needed to confirm a crash",       "verified": "design"},
+    {"id": "cooldown_s",            "value": 6.0,   "unit": "s",     "meaning": "no second crash is reported for this long",                              "verified": "design"},
+    {"id": "repair_drop",           "value": 0.02,  "unit": "0..1",  "meaning": "summed wear falling by this much = truck repaired in ATS, reset shadow", "verified": "design"},
+    {"id": "send_rate_hz",          "value": 20,    "unit": "Hz",    "meaning": "how often the plugin sends a tick to BeamNG",                            "verified": "design"},
+    {"id": "udp_port",              "value": 47750, "unit": "port",  "meaning": "localhost UDP port the BeamNG mod listens on",                           "verified": "design"}
+  ]
+}

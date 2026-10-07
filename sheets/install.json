@@ -1,0 +1,22 @@
+{
+  "sheet": "install",
+  "about": "What Melty installs and starts. One row = one recipe entry; tools/gen.py builds melty.json from it.",
+  "columns": {
+    "id": "row key",
+    "kind": "game | component | mapping | launch | together | multiplayer",
+    "value": "the recipe value (string or object)",
+    "refs": "other install row ids it depends on, or 'none'",
+    "verified": "design | melty (validate_recipe/one_click_check passed) | installed (Melty installed it on a PC)"
+  },
+  "rows": [
+    {"id": "game_ats",      "kind": "game",       "value": {"slug": "american-truck-simulator", "role": "primary"},   "refs": "none", "verified": "design"},
+    {"id": "game_beamng",   "kind": "game",       "value": {"slug": "beamng-drive", "role": "companion"},             "refs": "none", "verified": "design"},
+    {"id": "comp_ats",      "kind": "component",  "value": {"id": "main", "fileName": "ShadowRig-ATS-{version}.zip", "label": "Shadow Rig - ATS telemetry plugin", "kind": "main", "required": true}, "refs": "game_ats", "verified": "design"},
+    {"id": "comp_beamng",   "kind": "component",  "value": {"id": "beamng", "fileName": "ShadowRig-BeamNG-{version}.zip", "label": "Shadow Rig - BeamNG mod", "kind": "extra", "required": true}, "refs": "game_beamng", "verified": "design"},
+    {"id": "map_ats",       "kind": "mapping",    "value": {"component": "main", "from": "", "to": "{game}/bin/win_x64/plugins"}, "refs": "comp_ats", "verified": "design"},
+    {"id": "map_beamng",    "kind": "mapping",    "value": {"component": "beamng", "from": "", "to": "{localappdata}/BeamNG.drive/current/mods/unpacked/shadowrig"}, "refs": "comp_beamng", "verified": "design"},
+    {"id": "launch_ats",    "kind": "launch",     "value": {"kind": "game"}, "refs": "game_ats", "verified": "design"},
+    {"id": "with_beamng",   "kind": "together",   "value": {"launch": {"kind": "exe", "path": "{game:beamng-drive}/BeamNG.drive.exe"}, "startFirst": true, "waitSeconds": 5}, "refs": "game_beamng", "verified": "design"},
+    {"id": "mp_convoy",     "kind": "multiplayer","value": {"maxPlayers": 8}, "refs": "launch_ats", "verified": "design"}
+  ]
+}

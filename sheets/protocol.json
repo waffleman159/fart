@@ -1,0 +1,29 @@
+{
+  "sheet": "protocol",
+  "about": "JSON messages the ATS plugin sends to the BeamNG mod over localhost UDP. One row = one field; the encoder (C++) and decoder (Lua) are generated from it.",
+  "columns": {
+    "msg": "message type: tick | crash | repair",
+    "field": "JSON key",
+    "json_type": "number | bool | string",
+    "source": "ats_channels id, ats_events id, or computed:<what>",
+    "unit": "unit on the wire",
+    "verified": "design | game (seen arriving in BeamNG)"
+  },
+  "rows": [
+    {"msg": "tick",   "field": "spd",   "json_type": "number", "source": "speed",                  "unit": "m/s",      "verified": "design"},
+    {"msg": "tick",   "field": "str",   "json_type": "number", "source": "steering",               "unit": "-1..1",    "verified": "design"},
+    {"msg": "tick",   "field": "thr",   "json_type": "number", "source": "throttle",               "unit": "0..1",     "verified": "design"},
+    {"msg": "tick",   "field": "brk",   "json_type": "number", "source": "brake",                  "unit": "0..1",     "verified": "design"},
+    {"msg": "tick",   "field": "trl",   "json_type": "bool",   "source": "trailer_attached",       "unit": "bool",     "verified": "design"},
+    {"msg": "tick",   "field": "kg",    "json_type": "number", "source": "cargo_mass",             "unit": "kg",       "verified": "design"},
+    {"msg": "tick",   "field": "cargo", "json_type": "string", "source": "cargo_name",             "unit": "text",     "verified": "design"},
+    {"msg": "tick",   "field": "brand", "json_type": "string", "source": "truck_brand",            "unit": "text",     "verified": "design"},
+    {"msg": "tick",   "field": "cdmg",  "json_type": "number", "source": "cargo_damage",           "unit": "0..1",     "verified": "design"},
+    {"msg": "tick",   "field": "pause", "json_type": "bool",   "source": "computed:paused",        "unit": "bool",     "verified": "design"},
+    {"msg": "crash",  "field": "kmh",   "json_type": "number", "source": "computed:impact_kmh",    "unit": "km/h",     "verified": "design"},
+    {"msg": "crash",  "field": "g",     "json_type": "number", "source": "computed:peak_g",        "unit": "g",        "verified": "design"},
+    {"msg": "crash",  "field": "dmg",   "json_type": "number", "source": "computed:damage_delta",  "unit": "0..1",     "verified": "design"},
+    {"msg": "crash",  "field": "why",   "json_type": "string", "source": "computed:trigger",       "unit": "text",     "verified": "design"},
+    {"msg": "repair", "field": "wear",  "json_type": "number", "source": "computed:wear_total",    "unit": "0..1 sum", "verified": "design"}
+  ]
+}
