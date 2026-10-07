@@ -75,4 +75,4 @@ Needs `python3`, `x86_64-w64-mingw32-g++`, `g++`, `lua5.1`, `zip`, `curl`, `unzi
 - SCS Telemetry SDK © 2016 SCS Software, MIT-style licence (included in the ATS package as
   `shadow_rig_SCS_SDK_LICENSE.txt`). Downloaded at build time from SCS.
 - American Truck Simulator © SCS Software; BeamNG.drive © BeamNG GmbH. No game files are included.
-- Shadow Rig code: licence to be chosen by the author.
+- Shadow Rig code: MIT (see `LICENSE`). Remixes are welcome on Melty.

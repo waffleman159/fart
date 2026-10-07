@@ -26,6 +26,14 @@ final value (`game`, `tuned`, or `installed`) so `tools/preflight.py` stops list
 - Offline tests (`tests/run_tests.sh`) pass: crash/repair detection, JSON messages, BeamNG logic
   against stand-ins.
 
+## Melty listing (agreed with the user)
+
+- Draft created: modId `0fbb62ba-7e3b-4dbd-8253-19939b7e8b62`, slug `shadow-rig`, linked to
+  `waffleman159/fart`. Studio: https://melty.gg/studio/0fbb62ba-7e3b-4dbd-8253-19939b7e8b62
+- Title **Shadow Rig**; tagline "Crash in American Truck Simulator and your rig wrecks live in
+  BeamNG.drive."; description set (update it if testing changes behaviour); licence **MIT**;
+  remix **allowed**. No uploads or releases yet; reuse this modId, do not create another draft.
+
 ## To check on the PC (open checkboxes)
 
 1. **Find both game folders** (Steam library folders). Confirm ATS has `bin/win_x64/amtrucks.exe`
@@ -50,8 +58,7 @@ final value (`game`, `tuned`, or `installed`) so `tools/preflight.py` stops list
 6. **Together:** drive in ATS with BeamNG open; the shadow rig should appear and follow speed.
    Crash at ~25, ~50 and ~90 km/h; confirm barrier / car / wall. Tune `crash_rules.json`
    (thresholds) and mark rows `tuned`. Repair at a service → fresh rig.
-7. **Melty install test:** create the draft (title/tagline/description agreed with the user,
-   credits, content licence, remix choice — none decided yet), upload both zips, `submit_release`
+7. **Melty install test:** using the draft above, upload both zips, `submit_release`
    with `melty.json` (fileName `*` → version), then press Play in the Melty app and confirm Melty
    installs both parts, starts BeamNG and ATS, and the shadow rig works. Mark `install` rows `installed`.
 8. **Convoy:** host a Convoy with a second PC/account, join, confirm each player's shadow rig works.
