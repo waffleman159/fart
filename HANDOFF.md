@@ -32,7 +32,10 @@ final value (`game`, `tuned`, or `installed`) so `tools/preflight.py` stops list
   `waffleman159/fart`. Studio: https://melty.gg/studio/0fbb62ba-7e3b-4dbd-8253-19939b7e8b62
 - Title **Shadow Rig**; tagline "Crash in American Truck Simulator and your rig wrecks live in
   BeamNG.drive."; description set (update it if testing changes behaviour); licence **MIT**;
-  remix **allowed**. No uploads or releases yet; reuse this modId, do not create another draft.
+  remix **allowed**. Reuse this modId, do not create another draft.
+- Release **0.1.0 submitted** (draft, unpublished) with both zips and `melty.json`; `one_click_check`
+  on it says **yes**. If testing changes the code or recipe, rebuild and resubmit 0.1.0 (it replaces
+  the unpublished version). No screenshot uploaded yet; `publish` not called.
 
 ## To check on the PC (open checkboxes)
 
